@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="kr.co.saramin.api.developer.mapper.DeveloperMapper">
+
+    <insert id="addDeveloper" parameterType="kr.co.saramin.api.developer.domain.Developer">
+        INSERT INTO developer SET
+            name = #{name},
+            email = #{email},
+            password = #{password},
+            company_nm = #{company_nm},
+            register_date = now(),
+            update_date = now()
+    </insert>
+
+    <update id="modifyDeveloper" parameterType="kr.co.saramin.api.developer.domain.Developer">
+        UPDATE developer SET
+            name = #{name},
+            company_nm = #{company_nm},
+            update_date = now()
+        WHERE idx = #{idx}
+    </update>
+
+    <delete id="deleteDeveloper" parameterType="int">
+        DELETE FROM developer WHERE idx = #{idx}
+    </delete>
+
+    <select id="getDeveloperDataByIdx" parameterType="int">
+        SELECT *
+        FROM developer
+        WHERE idx = #{idx}
+    </select>
+
+    <select id="getDeveloperDataByEmail" parameterType="kr.co.saramin.api.developer.domain.Developer" resultType="kr.co.saramin.api.developer.domain.Developer">
+        SELECT *
+        FROM developer
+        WHERE email = #{email} and password = #{password}
+        limit 1
+    </select>
+
+    <select id="getDeveloperCnt" parameterType="String" resultType="int">
+         SELECT count(1)
+        FROM developer
+        WHERE email = #{email}
+    </select>
+</mapper>

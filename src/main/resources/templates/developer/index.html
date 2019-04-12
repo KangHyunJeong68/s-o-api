@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments/config :: configFragment"></head>
+<header th:replace="fragments/header :: headerFragment"></header>
+
+<h2> 개발자 </h2>
+<div class="container">
+    개발쟈쌀라쌀라
+    <ul>
+        <li>
+            <a th:href="@{/developer/join}"> 개발자 등록</a>
+        </li>
+        <li>
+            <a th:href="@{/developer/my}"> 내 정보 보기</a>
+        </li>
+    </ul>
+
+</div>
+<footer th:replace="fragments/footer:: footerFragment"></footer>
+</html>
