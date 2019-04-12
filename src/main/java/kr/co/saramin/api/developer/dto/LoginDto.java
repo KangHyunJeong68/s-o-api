@@ -1,4 +1,4 @@
-package kr.co.saramin.api.controller;
+package kr.co.saramin.api.developer.dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

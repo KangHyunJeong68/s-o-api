@@ -18,5 +18,4 @@ public interface DeveloperMapper {
 
     public Developer getDeveloperCnt(String email) throws Exception;
 
-
 }

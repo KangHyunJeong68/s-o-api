@@ -1,6 +1,7 @@
 package kr.co.saramin.api.controller;
 
 import kr.co.saramin.api.developer.domain.Developer;
+import kr.co.saramin.api.developer.dto.LoginDto;
 import kr.co.saramin.api.developer.service.DeveloperService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -8,6 +9,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 @Controller
 public class DeveloperController {
@@ -41,14 +43,34 @@ public class DeveloperController {
         dev.setPassword(rs.getParameter("password"));
         Integer result = ds.insertDev(dev);
 
+        System.out.println("insert result : " + result);
+
         mo.addAttribute("user_name", dev.getName());
+
         return result == 0 ? defaultUrl + "/join" : defaultUrl + "/join-success";
     }
 
 
     @RequestMapping("/developer/my-page")
-    private String myPage() throws Exception {
+    private String myPage(HttpSession sess, Model mo) throws Exception {
 
-        return defaultUrl + "/my-page";
+        boolean loginChk = false;
+        try {
+            Developer developer = (Developer) sess.getAttribute("userLoginInfo");
+            System.out.println(developer.toString());
+            System.out.println();
+            Integer idx = developer.getIdx();
+            if (idx != null) {
+                loginChk = true;
+            }
+            mo.addAttribute("name", developer.getName());
+            mo.addAttribute("email", developer.getEmail());
+            mo.addAttribute("companyName", developer.getCompany_nm());
+        } catch (Exception e) {
+            System.out.println("my-page error : " + e.getMessage());
+        }
+
+
+        return loginChk ? defaultUrl + "/my-page" : "redirect:login";
     }
 }

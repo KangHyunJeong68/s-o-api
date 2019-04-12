@@ -1,4 +1,15 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
-앱앱앱관리
+    <head th:replace="fragments/config :: configFragment"></head>
+    <header th:replace="fragments/header :: headerFragment"></header>
+    <body>
+        <!-- Gnb -->
+        <nav th:replace="fragments/gnb"></nav>
+        <!-- Gnb end -->
+
+        <div class="container">
+            <h2>앱 관리</h2>
+        </div>
+        <footer th:replace="fragments/footer:: footerFragment"></footer>
+    </body>
 </html>

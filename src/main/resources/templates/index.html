@@ -1,29 +1,27 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
+    <head th:replace="fragments/config :: configFragment"></head>
+    <header th:replace="fragments/header :: headerFragment"></header>
+    <body>
+        <!-- Gnb -->
+        <nav th:replace="fragments/gnb"></nav>
+        <!-- Gnb end -->
 
-<head th:replace="fragments/config :: configFragment"></head>
-<header th:replace="fragments/header :: headerFragment"></header>
-<body>
-    <!-- Gnb -->
-    <nav th:replace="fragments/gnb"></nav>
-    <!-- Gnb end -->
+        <div class="container">
+            <h2 class="text-info"> 사람인 오픈 API </h2>
+            <ul>
+                <li>
+                    <a th:href="@{/developer}">개발자 화면</a>
+                </li>
+                <li>
+                    <a th:href="@{/application}">앱 화면</a>
+                </li>
+                <li>
+                    <a th:href="@{/login}">로그인</a>
+                </li>
+            </ul>
+        </div>
 
-    <div class="container">
-        <h2> 사람인 오픈 API </h2>
-        <ul>
-            <li>
-                <a th:href="@{/developer}">개발자 화면</a>
-            </li>
-            <li>
-                <a th:href="@{/application}">앱 화면</a>
-            </li>
-            <li>
-                <a th:href="@{/login/index}">로그인</a>
-            </li>
-        </ul>
-    </div>
-
-
-    <footer th:replace="fragments/footer:: footerFragment"></footer>
-</body>
+        <footer th:replace="fragments/footer:: footerFragment"></footer>
+    </body>
 </html>

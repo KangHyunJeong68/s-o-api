@@ -1,5 +1,12 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
-
-키키키키키
+    <head th:replace="fragments/config :: configFragment"></head>
+    <header th:replace="fragments/header :: headerFragment"></header>
+    <body>
+        <!-- Gnb -->
+        <nav th:replace="fragments/gnb"></nav>
+        <!-- Gnb end -->
+        키키키키키
+        <footer th:replace="fragments/footer:: footerFragment"></footer>
+    </body>
 </html>

@@ -8,8 +8,7 @@ import org.springframework.stereotype.Service;
 @Service("kr.co.saramin.api.developer.service.DeveloperService")
 public class DeveloperService {
 
-    @Autowired
-    DeveloperMapper developerMapper;
+    @Autowired DeveloperMapper developerMapper;
 
     public int insertDev(Developer dev) throws Exception {
         System.out.println(dev.toString());
