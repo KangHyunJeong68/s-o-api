@@ -9,9 +9,9 @@
         <h2> 개발자 마이페이지 </h2>
         <h4>내 정보</h4>
         <ul>
-            <li>이름 : </li>
-            <li>회사 : </li>
-            <li>이메일 : </li>
+            <li>이름 : <span th:text="${name}"></span></li>
+            <li>회사 : <span th:text="${companyName}"></span> </li>
+            <li>이메일 : <span th:text="${email}"></span> </li>
         </ul>
 
     </div>

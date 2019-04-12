@@ -12,4 +12,5 @@ public class ApplicationController {
         mo.addAttribute("title", "사람인 오픈 API - 앱관리");
         return "application/index";
     }
+
 }

@@ -16,7 +16,7 @@ public class MainController {
 
     @RequestMapping("/api")
     private String apiIntro() throws Exception {
-        return "apiIntro/index";
+        return "api-intro/index";
     }
 
 }

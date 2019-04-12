@@ -14,22 +14,21 @@ import javax.servlet.http.HttpSession;
 @Controller
 public class DeveloperController {
 
-    public String defaultUrl = "/developer";
+    public String defaultPath = "/developer";
 
     @Resource(name = "kr.co.saramin.api.developer.service.DeveloperService")
     DeveloperService ds;
 
     @RequestMapping({"/developer", "/developer/index"})
     private String index(LoginDto loginDto, Model mo) throws Exception {
-
 //        System.out.println(loginDto.toString());
-        return defaultUrl + "/index";
+        return defaultPath + "/index";
     }
 
     @RequestMapping({"/developer/join"})
     private String join(Model mo) throws Exception {
-        mo.addAttribute("defaultUrl", defaultUrl);
-        return defaultUrl + "/join";
+        mo.addAttribute("defaultPath", defaultPath);
+        return defaultPath + "/join";
     }
 
     @RequestMapping("/developer/join-proc")
@@ -41,16 +40,14 @@ public class DeveloperController {
         dev.setEmail(rs.getParameter("email"));
         dev.setCompany_nm(rs.getParameter("company_name"));
         dev.setPassword(rs.getParameter("password"));
+        
         Integer result = ds.insertDev(dev);
-
         System.out.println("insert result : " + result);
-
         mo.addAttribute("user_name", dev.getName());
 
-        return result == 0 ? defaultUrl + "/join" : defaultUrl + "/join-success";
+        return result == 0 ? defaultPath + "/join" : defaultPath + "/join-success";
     }
-
-
+    
     @RequestMapping("/developer/my-page")
     private String myPage(HttpSession sess, Model mo) throws Exception {
 
@@ -69,8 +66,9 @@ public class DeveloperController {
         } catch (Exception e) {
             System.out.println("my-page error : " + e.getMessage());
         }
-
-
-        return loginChk ? defaultUrl + "/my-page" : "redirect:login";
+        
+        return loginChk ? defaultPath + "/my-page" : "redirect:/login";
     }
+    
+    
 }
