@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorator="layout/default">
+
+<div class="container" layout:fragment="content">
+    <h2 class="text-info"> 내 앱 리스트 </h2>
+    <table class="table table-hover" id="appList">
+        <thead>
+        <tr>
+            <th scope="col">앱 idx</th>
+            <th scope="col">앱 이름</th>
+            <th scope="col">앱 등록일자</th>
+            <th scope="col">앱 수정일자</th>
+            <th scope="col">앱 삭제</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="list, index: ${appList}" th:class="${index.index} % 2 == 0 ? 'table-info' : 'table-light'">
+            <td th:text="${list.idx}"></td>
+            <td th:text="${list.name}"></td>
+            <td th:text="${list.register_date}"></td>
+            <td th:text="${list.update_date}"></td>
+            <td th:data-idx="${list.idx}"><button class="btn btn-warning" name="btn_deleteApp">삭제</button></td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+</html>

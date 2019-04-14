@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="kr.co.saramin.api.developer.mapper.ApplicationMapper">
+    <insert id="appInsert" parameterType="kr.co.saramin.api.developer.domain.Application">
+        INSERT INTO developerApplication SET
+        dev_idx = #{dev_idx},
+        name = #{name},
+        register_date = now(),
+        update_date = now()
+    </insert>
+
+    <select id="appList" resultType="map" parameterType="int">
+        SELECT *
+        FROM developerApplication
+        WHERE dev_idx = #{dev_idx}
+        ORDER BY register_date DESC
+    </select>
+
+    <delete id="appDelete" parameterType="int">
+        DELETE FROM developerApplication WHERE idx = #{idx}
+    </delete>
+</mapper>

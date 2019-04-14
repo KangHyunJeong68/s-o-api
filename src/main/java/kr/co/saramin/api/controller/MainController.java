@@ -1,6 +1,5 @@
 package kr.co.saramin.api.controller;
 
-import org.hibernate.validator.constraints.pl.REGON;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
