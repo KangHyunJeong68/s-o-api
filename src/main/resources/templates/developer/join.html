@@ -1,41 +1,34 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
-    <head th:replace="fragments/config :: configFragment"></head>
-    <!--<header th:replace="fragments/header :: headerFragment(title='사람인 오픈 API')"></header>-->
-    <header th:replace="fragments/header :: headerFragment"></header>
-    <body>
-        <!-- Gnb -->
-        <nav th:replace="fragments/gnb"></nav>
-      <!-- Gnb end -->
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorator="layout/default">
 
-        <h2 class="text-info"> 개발자 등록 </h2>
-        <div class="container">
-            <form th:action="|${defaultUrl}/join-proc|" method="post" id="joinFrm">
-                <div class="form-group">
-                    <label for="user_name">이름</label>
-                    <input type="text" class="form-control" id="user_name" name="user_name" placeholder="이름을 입력하세요.">
-                </div>
-                <div class="form-group">
-                    <label for="email">이메일</label>
-                    <input type="email" class="form-control" id="email" name="email" placeholder="내용을 입력하세요.">
-                    <button class="btn btn-info" id="btn_cert">인증</button>
-                </div>
-                <div class="form-group">
-                    <label for="company_name">회사명</label>
-                    <input type="text" class="form-control" id="company_name" name="company_name" placeholder="회사명을 입력하세요.">
-                </div>
-                <div class="form-group">
-                    <label for="password">비밀번호</label>
-                    <input type="password" class="form-control" id="password" name="password">
-                </div>
-                <div class="form-group">
-                    <label for="password2">비밀번호 확인</label>
-                    <input type="password" class="form-control" id="password2" name="password2">
-                </div>
-                <button type="submit" id="btn_join" class="btn btn-info">등록</button>
-            </form>
+<div class="container" layout:fragment="content">
+    <h2 class="text-info"> 개발자 등록 </h2>
+    <form th:action="|${defaultUrl}/join-proc|" method="post" id="joinFrm">
+        <div class="form-group">
+            <label for="user_name">이름</label>
+            <input type="text" class="form-control" id="user_name" name="user_name" placeholder="이름을 입력하세요.">
         </div>
-        <footer th:replace="fragments/footer:: footerFragment"></footer>
-    </body>
-    <script th:src="@{/js/member.js}"></script>
+        <div class="form-group">
+            <label for="email">이메일</label>
+            <input type="email" class="form-control" id="email" name="email" placeholder="내용을 입력하세요.">
+            <button class="btn btn-info" id="btn_cert">인증</button>
+        </div>
+        <div class="form-group">
+            <label for="company_name">회사명</label>
+            <input type="text" class="form-control" id="company_name" name="company_name" placeholder="회사명을 입력하세요.">
+        </div>
+        <div class="form-group">
+            <label for="password">비밀번호</label>
+            <input type="password" class="form-control" id="password" name="password">
+        </div>
+        <div class="form-group">
+            <label for="password2">비밀번호 확인</label>
+            <input type="password" class="form-control" id="password2" name="password2">
+        </div>
+        <button type="submit" id="btn_join" class="btn btn-info">등록</button>
+    </form>
+</div>
+<script th:src="@{/js/member.js}"></script>
 </html>

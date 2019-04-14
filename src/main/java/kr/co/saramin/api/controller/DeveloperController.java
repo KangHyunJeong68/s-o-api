@@ -20,8 +20,7 @@ public class DeveloperController {
     DeveloperService ds;
 
     @RequestMapping({"/developer", "/developer/index"})
-    private String index(LoginDto loginDto, Model mo) throws Exception {
-//        System.out.println(loginDto.toString());
+    private String index() throws Exception {
         return defaultPath + "/index";
     }
 
@@ -54,8 +53,6 @@ public class DeveloperController {
         boolean loginChk = false;
         try {
             Developer developer = (Developer) sess.getAttribute("userLoginInfo");
-            System.out.println(developer.toString());
-            System.out.println();
             Integer idx = developer.getIdx();
             if (idx != null) {
                 loginChk = true;

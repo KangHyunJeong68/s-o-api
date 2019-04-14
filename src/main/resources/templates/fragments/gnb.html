@@ -11,16 +11,41 @@
     <div class="collapse navbar-collapse" id="navbarColor03">
         <ul class="navbar-nav mr-auto">
             <!-- //active -->
-            <li class="nav-item">
-                <a class="nav-link" href="/api">API</a>
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="true">API</a>
+                <div class="dropdown-menu" x-placement="bottom-start" style="position: absolute; will-change: transform; top: 0px; left: 0px; transform: translate3d(0px, 40px, 0px);">
+                    <a class="dropdown-item" href="/api">사람인 오픈API</a>
+                    <a class="dropdown-item" href="#">취업검색 API </a>
+                    <a class="dropdown-item" href="#">채용공고 API</a>
+                    <a class="dropdown-item" href="#">취업검색 API URL</a>
+                    <a class="dropdown-item" href="#">사람인 코드</a>
+                </div>
             </li>
-            <li class="nav-item">
+            <li class="nav-item ">
                 <a class="nav-link" href="/developer/index">DEVELOPER</a>
             </li>
+
+
+<!--            <li class="nav-item dropdown">-->
+<!--                <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Dropdown</a>-->
+<!--                <div class="dropdown-menu" x-placement="bottom-start" style="position: absolute; will-change: transform; top: 0px; left: 0px; transform: translate3d(0px, 40px, 0px);">-->
+<!--                    <a class="dropdown-item" href="#">Action</a>-->
+<!--                    <a class="dropdown-item" href="#">Another action</a>-->
+<!--                    <a class="dropdown-item" href="#">Something else here</a>-->
+<!--                    <div class="dropdown-divider"></div>-->
+<!--                    <a class="dropdown-item" href="#">Separated link</a>-->
+<!--                </div>-->
+<!--            </li>-->
+
+
+
             <li class="nav-item">
                 <a class="nav-link" href="/application">APPLICATION</a>
             </li>
-            <li class="nav-item">
+            <li th:if="${session.userLoginInfo}" class="nav-item">
+                <a class="nav-link" href="/logout">로그아웃</a>
+            </li>
+            <li th:unless="${session.userLoginInfo}" class="nav-item">
                 <a class="nav-link" href="/login">로그인</a>
             </li>
         </ul>

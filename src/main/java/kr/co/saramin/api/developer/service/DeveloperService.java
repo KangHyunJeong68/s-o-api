@@ -1,6 +1,7 @@
 package kr.co.saramin.api.developer.service;
 
 import kr.co.saramin.api.developer.domain.Developer;
+import kr.co.saramin.api.developer.dto.LoginRequest;
 import kr.co.saramin.api.developer.mapper.DeveloperMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -11,7 +12,7 @@ public class DeveloperService {
     @Autowired DeveloperMapper developerMapper;
 
     public int insertDev(Developer dev) throws Exception {
-        System.out.println(dev.toString());
+        System.out.println("insert + " + dev.toString());
         return developerMapper.addDeveloper(dev);
     }
 
@@ -35,6 +36,12 @@ public class DeveloperService {
         return developerMapper.getDeveloperCnt(email);
     }
 
-
+    public Developer findUser(LoginRequest loginRequest) throws Exception {
+        Developer loginUser = developerMapper.getDeveloperDataByEmail(loginRequest.user());
+        if (loginUser == null) {
+            throw new RuntimeException("아이디와 비밀번호를 확인해주세요.");
+        }
+        return loginUser;
+    }
 
 }

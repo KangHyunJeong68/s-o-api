@@ -1,16 +1,12 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
-    <head th:replace="fragments/config :: configFragment"></head>
-    <header th:replace="fragments/header :: headerFragment"></header>
-    <body>
-        <!-- Gnb -->
-        <nav th:replace="fragments/gnb"></nav>
-        <!-- Gnb end -->
-        <h2> 개발자 </h2>
-        <div class="container">
-            <h2 th:text="${user_name}"></h2>
-            개발쟈가입 완료
-        </div>
-        <footer th:replace="fragments/footer:: footerFragment"></footer>
-    </body>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorator="layout/default">
+
+<div class="container" layout:fragment="content">
+    <h2> 개발자 </h2>
+    <div class="container">
+        <h2 th:text="${user_name}"></h2>
+        개발쟈가입 완료
+    </div>
 </html>

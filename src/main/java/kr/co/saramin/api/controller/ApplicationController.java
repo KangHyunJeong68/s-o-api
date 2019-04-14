@@ -8,8 +8,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 public class ApplicationController {
 
     @RequestMapping("/application")
-    private String index(Model mo) throws Exception {
-        mo.addAttribute("title", "사람인 오픈 API - 앱관리");
+    private String index() throws Exception {
         return "application/index";
     }
 

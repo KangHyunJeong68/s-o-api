@@ -1,16 +1,13 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
-    <head th:replace="fragments/config :: configFragment"></head>
-    <header th:replace="fragments/header :: headerFragment"></header>
-    <body>
-        <!-- Gnb -->
-        <nav th:replace="fragments/gnb"></nav>
-        <!-- Gnb end -->
-        api 설명
-        <ul>
-            <li><a href="#allRecruit">취업</a></li>
-            <li><a href="#recruit">공고</a></li>
-        </ul>
-        <footer th:replace="fragments/footer:: footerFragment"></footer>
-    </body>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorator="layout/default">
+
+<div class="container" layout:fragment="content">
+    api 설명
+    <ul>
+        <li><a href="#allRecruit">취업</a></li>
+        <li><a href="#recruit">공고</a></li>
+    </ul>
+</div>
 </html>
