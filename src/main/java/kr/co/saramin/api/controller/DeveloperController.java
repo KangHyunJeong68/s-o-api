@@ -1,13 +1,12 @@
 package kr.co.saramin.api.controller;
 
 import kr.co.saramin.api.developer.domain.Developer;
-import kr.co.saramin.api.developer.dto.LoginDto;
 import kr.co.saramin.api.developer.service.DeveloperService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
@@ -16,8 +15,8 @@ public class DeveloperController {
 
     public String defaultPath = "/developer";
 
-    @Resource(name = "kr.co.saramin.api.developer.service.DeveloperService")
-    DeveloperService ds;
+    @Autowired DeveloperService ds;
+
 
     @RequestMapping({"/developer", "/developer/index"})
     private String index() throws Exception {

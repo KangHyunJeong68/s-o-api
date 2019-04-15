@@ -13,4 +13,6 @@ public interface ApplicationMapper {
 
     public int appDelete(Integer idx) throws Exception;
 
+    public Application getAppData(Integer idx) throws Exception;
+
 }

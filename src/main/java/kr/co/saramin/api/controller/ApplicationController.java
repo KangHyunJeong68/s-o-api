@@ -6,6 +6,7 @@ import kr.co.saramin.api.developer.service.ApplicationService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -44,9 +45,6 @@ public class ApplicationController {
 
     @RequestMapping("/application/app-list")
     private String appList(Model mo, HttpSession sess) throws Exception {
-        if (!isLogin(sess)) {
-            return "redirect:/login";
-        }
         Developer devData = (Developer) sess.getAttribute("userLoginInfo");
         List appList = applicationService.selectApplicationList(devData.getIdx());
         mo.addAttribute("appList", appList);
@@ -59,6 +57,17 @@ public class ApplicationController {
         Integer idx = Integer.parseInt(rs.getParameter("idx"));
         if (idx == null) return 0;
         return applicationService.deleteApplication(idx);
+    }
+
+    @RequestMapping("application/detail/{app_idx}")
+    private String appDetail(Model mo, @PathVariable Integer app_idx) throws Exception {
+
+        System.out.println("detail ----- " + app_idx);
+        Application appData = applicationService.getAppData(app_idx);
+        mo.addAttribute("app_name", appData.getName());
+        mo.addAttribute("key", appData.getName());
+        mo.addAttribute("register_date", appData.getRegister_date());
+        return "application/detail";
     }
 
     private boolean isLogin(HttpSession sess) {

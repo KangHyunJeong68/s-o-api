@@ -4,10 +4,11 @@
       layout:decorator="layout/default">
 
 <div class="container" layout:fragment="content">
-    api 설명
+    <h2 th:text="${app_name}"></h2>
     <ul>
-        <li><a href="#allRecruit">취업</a></li>
-        <li><a href="#recruit">공고</a></li>
+        <li> 등록일자 : <span th:text="${register_date}"></span></li>
+        <li> key : <span th:text="${key}"></span></li>
     </ul>
+
 </div>
 </html>

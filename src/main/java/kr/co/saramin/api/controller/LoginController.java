@@ -4,6 +4,7 @@ import kr.co.saramin.api.developer.domain.Developer;
 import kr.co.saramin.api.developer.dto.DefaultResponse;
 import kr.co.saramin.api.developer.dto.LoginRequest;
 import kr.co.saramin.api.developer.service.DeveloperService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -16,8 +17,7 @@ import javax.servlet.http.HttpSession;
 @Controller
 public class LoginController {
 
-    @Resource(name = "kr.co.saramin.api.developer.service.DeveloperService")
-    DeveloperService ds;
+    @Autowired DeveloperService ds;
 
     @GetMapping("/login")
     private String login(HttpSession sess) throws Exception {

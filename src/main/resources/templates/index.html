@@ -3,21 +3,8 @@
       xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
       layout:decorator="layout/default">
 
-<div class="container" layout:fragment="content" >
-    <h2 class="text-info"> 사람인 오픈 API </h2>
-    <div>
-        오픈 API란 자사의 API를 외부에 공개한 것으로 사람인에서는 채용정보 데이타를 누구든 이용할 수 있도록 공개한 개발자를 위한 인터페이스 입니다.
-        사람인의 취업 검색 API는 개발자가 채용정보 데이터베이스를 사용하여 맞춤형 채용정보 검색 사이트, 채용정보 위젯, 매쉬업 및 채용안내 관련 인터넷 어플리케이션을 개발할 수 있도록 해줍니다.
-        누구나 이용할 수 있으며, 아래와 같이 사람인에서 제공한 채용정보임을 명시해 주시기 바랍니다.
-    </div>
-    <ul>
-        <li>
-            <a th:href="@{/developer}">개발자 화면</a>
-        </li>
-        <li>
-            <a th:href="@{/application}">앱 화면</a>
-        </li>
-    </ul>
+<div layout:fragment="content"class="container">
+    <h2 class="text-info" id="title"></h2>
+    <div id="content"></div>
 </div>
-
 </html>

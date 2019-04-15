@@ -21,4 +21,10 @@
     <delete id="appDelete" parameterType="int">
         DELETE FROM developerApplication WHERE idx = #{idx}
     </delete>
+
+    <select id="getAppData" resultType="kr.co.saramin.api.developer.domain.Application">
+        SELECT *
+        FROM developerApplication
+        WHERE idx = #{idx}
+    </select>
 </mapper>

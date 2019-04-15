@@ -23,4 +23,8 @@ public class ApplicationService {
     public int deleteApplication(Integer idx) throws Exception {
         return mapper.appDelete(idx);
     }
+
+    public Application getAppData(Integer idx) throws Exception {
+        return mapper.getAppData(idx);
+    }
 }
